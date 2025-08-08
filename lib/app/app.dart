@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rohid_boilerplate/core/constants/app_values.dart';
+import 'package:rohid_boilerplate/presentation/features/counter/screens/counter_screen.dart';
+import 'package:rohid_boilerplate/presentation/theme/app_theme.dart';
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(AppValues.defaultWidth, AppValues.defaultHeight),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          darkTheme: AppTheme.darkTheme,
+          theme: AppTheme.lightTheme,
+          themeMode: ThemeMode.system,
+          home: child,
+        );
+      },
+      child: const CounterScreen(),
+    );
+  }
+}
