@@ -24,8 +24,6 @@ class MyApp extends StatelessWidget {
           routerConfig: AppRouter.createRouter(),
         );
       },
-      // No child is required when using MaterialApp.router
-      child: const SizedBox.shrink(),
     );
   }
 }

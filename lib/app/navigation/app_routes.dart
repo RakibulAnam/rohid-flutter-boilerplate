@@ -2,8 +2,10 @@ enum AppRoute {
   counter('counter', '/counter');
 
   final String name;
+
   /// Path template. May include params like `/users/:id`.
   final String path;
+
   const AppRoute(this.name, this.path);
 
   /// Build a location string with [pathParams] and [queryParams].
@@ -17,7 +19,10 @@ enum AppRoute {
 
     if (pathParams.isNotEmpty) {
       for (final entry in pathParams.entries) {
-        filled = filled.replaceAll(':${entry.key}', Uri.encodeComponent(entry.value));
+        filled = filled.replaceAll(
+          ':${entry.key}',
+          Uri.encodeComponent(entry.value),
+        );
       }
     }
 
@@ -41,5 +46,3 @@ enum AppRoute {
     return '$filled?${segments.join('&')}';
   }
 }
-
-
