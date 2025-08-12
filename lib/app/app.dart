@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rohid_boilerplate/app/navigation/app_router.dart';
 import 'package:rohid_boilerplate/core/constants/app_values.dart';
-import 'package:rohid_boilerplate/presentation/features/counter/screens/counter_screen.dart';
 import 'package:rohid_boilerplate/presentation/theme/app_theme.dart';
 
 class MyApp extends StatelessWidget {
@@ -15,16 +15,17 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           darkTheme: AppTheme.darkTheme,
           theme: AppTheme.lightTheme,
           themeMode: ThemeMode.system,
-          home: child,
+          routerConfig: AppRouter.createRouter(),
         );
       },
-      child: const CounterScreen(),
+      // No child is required when using MaterialApp.router
+      child: const SizedBox.shrink(),
     );
   }
 }
