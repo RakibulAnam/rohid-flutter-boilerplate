@@ -23,6 +23,7 @@ class CounterScreen extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'decrement',
             onPressed: () {
               notifier.decrement();
             },
@@ -30,6 +31,7 @@ class CounterScreen extends ConsumerWidget {
           ),
           SizedBox(width: 10),
           FloatingActionButton(
+            heroTag: 'increment',
             onPressed: () {
               notifier.increment();
             },
@@ -47,12 +49,12 @@ class CounterScreen extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'The Count is',
+            'The Count Is :',
             style: Theme.of(context).textTheme.titleLargeItalic.copyWith(
               fontSize: AppValues.dimen_16.sp,
             ),
           ),
-          10.verticalSpace,
+          AppValues.dimen_10.verticalSpace,
           Text('${viewModel.count}'),
         ],
       ),
