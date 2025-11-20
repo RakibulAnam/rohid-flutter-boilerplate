@@ -1,12 +1,16 @@
-enum AppRoute {
-  counter('counter', '/counter');
+enum AppRoutes {
+  splash('splash', '/splash'),
+  dashboard('dashboard', '/dashboard'),
+  counter('counter', '/counter'),
+  settings('settings', '/settings');
+
 
   final String name;
 
   /// Path template. May include params like `/users/:id`.
   final String path;
 
-  const AppRoute(this.name, this.path);
+  const AppRoutes(this.name, this.path);
 
   /// Build a location string with [pathParams] and [queryParams].
   /// - Replaces occurrences of `:key` in the path with encoded values.
